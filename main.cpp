@@ -4,7 +4,7 @@ using namespace std;
 
 struct Stack {
 	int top;
-	string data[MAX];
+	string nama[MAX], posisi[MAX];
 } Tumpukan;
 
 void init() {
@@ -24,10 +24,12 @@ void push() {
 		cout << "\nTumpukan penuh" << endl;
 	} else {
 		Tumpukan.top++;
-		cout << "\nMasukkan data = ";
-		cin >> Tumpukan.data[Tumpukan.top];
-		cout << "Data " << Tumpukan.data[Tumpukan.top] << " masuk ke stack"
-			 << endl;
+		cout << "\nMasukkan nama = ";
+		cin >> Tumpukan.nama[Tumpukan.top];
+		cout << "nama " << Tumpukan.nama[Tumpukan.top] << " masuk ke stack"<< endl;
+		cout << "\nMasukkan posisi = ";
+		cin >> Tumpukan.posisi[Tumpukan.top];
+		cout << "posisi " << Tumpukan.posisi[Tumpukan.top] << " masuk ke stack"<< endl;
 	}
 }
 
@@ -35,8 +37,7 @@ void pop() {
 	if (isEmpty()) {
 		cout << "\nData kosong\n" << endl;
 	} else {
-		cout << "\nData " << Tumpukan.data[Tumpukan.top] << " sudah terambil"
-			 << endl;
+		cout << "\nnama " << Tumpukan.nama[Tumpukan.top] <<"dan posisi " << Tumpukan.posisi[Tumpukan.top]<<" sudah terambil"<< endl;
 		Tumpukan.top--;
 	}
 }
@@ -45,9 +46,13 @@ void printStack() {
 	if (isEmpty()) {
 		cout << "Tumpukan kosong";
 	} else {
-		cout << "\nTumpukan : ";
-		for (int i = Tumpukan.top; i >= 0; i--)
-			cout << Tumpukan.data[i] << ((i == 0) ? "" : ",");
+		cout << "\nTumpukan : "<<endl;
+		for (int i = Tumpukan.top; i >= 0; i--){
+            cout <<"data ke-"<<i+1<<endl;
+			cout <<"nama  : "<< Tumpukan.nama[i]<<endl;
+			cout <<"posisi: "<< Tumpukan.posisi[i]<<endl;
+		}
+
 	}
 }
 
